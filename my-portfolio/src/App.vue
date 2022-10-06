@@ -1,4 +1,4 @@
 
 <template>
-    <router-view class="bg-neutral-500 min-h-screen"></router-view>
+    <router-view class="bg-neutral-200 min-h-screen"></router-view>
 </template>
