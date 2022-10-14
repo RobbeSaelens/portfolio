@@ -9,11 +9,11 @@ export default defineConfig({
   plugins: [
     vue(),
     Unocss({
-      rules: [['font-theme', { 'font-family': 'din-condensed, sans-serif' }]],
+      rules: [['font-theme', { 'font-family': 'anisette-petite, sans-serif' }]],
     }),
     VitePluginFonts({
       typekit: {
-        id: 'roa7muy', // https://fonts.adobe.com/my_fonts#web_projects-section
+        id: 'ubn5wdm', // https://fonts.adobe.com/my_fonts#web_projects-section
         defer: true,
         injectTo: 'head',
       },

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen h-screen">
+  <div class="min-h-screen px-6">
     <AppHeader />
     <router-view class="overflow y-auto"></router-view>
     <AppFooter />

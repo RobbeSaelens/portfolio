@@ -44,7 +44,7 @@
         Projects</router-link
       >
     </li>
-    <li>
+    <!-- <li>
       <router-link
         class="
           text-xl text-neutral-100
@@ -59,7 +59,7 @@
       >
         About</router-link
       >
-    </li>
+    </li> -->
     <li>
       <router-link
         class="
