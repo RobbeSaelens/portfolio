@@ -1,80 +1,123 @@
 <template>
-  <ul
+  <button
+    @click="toggleNav"
+    data-collapse-toggle="navbar-default"
+    type="button"
     class="
-      flex
-      w-full
-      sm:w-auto
-      items-center
-      text-center
-      sm:text-sm
-      pt-2
-      font-bold
+      absolute
+      top-5
+      right-6
+      p-2
+      text-sm
+      rounded-lg
+      sm:hidden
+      focus:outline-none focus:ring-2
+      text-teal-600
+      focus:ring-gray-600
     "
+    aria-controls="navbar-default"
+    aria-expanded="false"
   >
-    <li>
-      <router-link
-        class="
-          text-xl text-neutral-100
-          inline-block
-          px-5
-          outline-none
-          focus-visible:ring-2
-          hover:text-teal-600 hover:transition hover:ease-in-out
-        "
-        active-class="text-teal-800"
-        to="/"
-      >
-        Home</router-link
-      >
-    </li>
-    <li>
-      <router-link
-        class="
-          text-neutral-100
-          inline-block
-          px-5
-          outline-none
-          focus-visible:ring-2
-          text-xl
-          hover:text-teal-600 hover:transition hover:ease-in-out
-        "
-        active-class="text-teal-800"
-        to="/projects"
-      >
-        Projects</router-link
-      >
-    </li>
-    <!-- <li>
-      <router-link
-        class="
-          text-xl text-neutral-100
-          inline-block
-          px-5
-          outline-none
-          focus-visible:ring-2
-          hover:text-teal-600 hover:transition hover:ease-in-out
-        "
-        active-class="text-teal-800"
-        to="/about"
-      >
-        About</router-link
-      >
-    </li> -->
-    <li>
-      <router-link
-        class="
-          text-xl text-neutral-100
-          inline-block
-          px-5
-          outline-none
-          focus-visible:ring-2
-          hover:text-teal-600 hover:transition hover:ease-in-out
-        "
-        active-class="text-teal-800"
-        to="/contact"
-      >
-        Contact</router-link
-      >
-    </li>
-  </ul>
+    <span class="sr-only">Open main menu</span>
+    <svg
+      class="w-6 h-6"
+      aria-hidden="true"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+  <div :class="showMenu ? 'block' : 'hidden'" class="w-full sm:block sm:w-auto" id="navbar-default">
+    <ul
+      class="
+        flex flex-col
+        p-4
+        mt-4
+        rounded-lg
+        border border-teal-800
+        sm:flex-row sm:space-x-15 sm:mt-0 sm:text-sm sm:font-bold
+        font-medium
+        sm:border-0
+      "
+    >
+      <li active-class="text-teal-800">
+        <router-link
+          class="
+            text-xl
+            flex
+            py-2
+            pr-5
+            pl-3
+            text-white
+            rounded
+            hover:bg-teal-800 hover:bg-opacity-35
+            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
+          "
+          active-class="text-teal-800"
+          to="/"
+        >
+          Home</router-link
+        >
+      </li>
+      <li>
+        <router-link
+          class="
+            text-xl
+            flex
+            py-2
+            pr-5
+            pl-3
+            text-white
+            rounded
+            hover:bg-teal-800 hover:bg-opacity-35
+            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
+          "
+          active-class="text-teal-800"
+          to="/projects"
+        >
+          Projects</router-link
+        >
+      </li>
+
+      <li>
+        <router-link
+          class="
+            text-xl
+            flex
+            py-2
+            pr-5
+            pl-3
+            text-white
+            rounded
+            hover:bg-teal-800 hover:bg-opacity-35
+            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
+          "
+          active-class="text-teal-800"
+          to="/contact"
+        >
+          Contact</router-link
+        >
+      </li>
+    </ul>
+  </div>
 </template>
+
+<script>
+import { ref } from 'vue'
+export default {
+  setup() {
+    let showMenu = ref(false)
+    const toggleNav = () => (showMenu.value = !showMenu.value)
+    return {
+      showMenu,
+      toggleNav,
+    }
+  },
+}
+</script>
