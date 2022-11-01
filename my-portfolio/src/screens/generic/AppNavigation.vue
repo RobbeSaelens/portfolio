@@ -46,7 +46,7 @@
         sm:border-0
       "
     >
-      <li active-class="text-teal-800">
+      <li class="text-white">
         <router-link
           class="
             text-xl
@@ -54,18 +54,18 @@
             py-2
             pr-5
             pl-3
-            text-white
             rounded
             hover:bg-teal-800 hover:bg-opacity-35
             sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
           "
-          active-class="text-teal-800"
           to="/"
+          exact-active-class="text-teal-800"
         >
           Home</router-link
         >
       </li>
-      <li>
+
+      <li class="text-white">
         <router-link
           class="
             text-xl
@@ -73,7 +73,6 @@
             py-2
             pr-5
             pl-3
-            text-white
             rounded
             hover:bg-teal-800 hover:bg-opacity-35
             sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
@@ -85,7 +84,7 @@
         >
       </li>
 
-      <li>
+      <li class="text-white">
         <router-link
           class="
             text-xl
@@ -93,7 +92,6 @@
             py-2
             pr-5
             pl-3
-            text-white
             rounded
             hover:bg-teal-800 hover:bg-opacity-35
             sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0

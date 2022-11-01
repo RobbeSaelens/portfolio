@@ -4,20 +4,16 @@
       <h1 class="font-bold text-5xl text-neutral-100">Profile</h1>
       <hr class="bg-teal-600 mt-4 w-45 rounded-md border-1" />
     </div>
-    <div class="lg:flex md:space-x-0 lg:space-x-15">
-      <div class="xl:w-1/4 lg:w-1/3">
-        <img
-          class="rounded-lg shadow-md object-contain lg:block md:hidden"
-          src="/pf.jpg"
-          alt="My profile picture"
-        />
+    <div class="sm:flex sm:space-x-5 md:space-x-10">
+      <div class="xl:w-1/4 sm:w-1/3 sm:block hidden">
+        <img class="rounded-lg shadow-md object-contain" src="/pf.jpg" alt="My profile picture" />
       </div>
       <div>
-        <div class="space-y-3">
-          <p class="text-neutral-300 lg:text-6xl font-extrabold md:text-3xl">
+        <div class="md:space-y-3 sm:space-y-0 p-0 sm:pb-2">
+          <p class="text-neutral-300 lg:text-6xl font-extrabold text-3xl">
             Hi, my name is Robbe Saelens.
           </p>
-          <p class="text-neutral-300 lg:text-6xl md:text-3xl font-extrabold">
+          <p class="text-neutral-300 lg:text-6xl text-3xl font-extrabold pb-3">
             I'm a
             <span class="text-teal-800 animate-pulse">next web developer!</span>
           </p>
@@ -27,6 +23,15 @@
             I'm a student in Howest Kortrijk where I follow the bachelor's degree
             <a class="underline hover:text-teal-600" href="https://mct.be/">
               Multimedia & Creative Technologies (MCT).</a
+            >
+          </p>
+          <p class="text-neutral-300">
+            Before i started the bachelor's degree, I followed the graduate education
+            <a
+              class="underline hover:text-teal-600"
+              href="https://www.howest.be/nl/opleidingen/graduaat/digitale-vormgeving/front-end-web-design"
+            >
+              Multimedia & Information Technologies (MIT).</a
             >
           </p>
           <p class="text-neutral-300">
@@ -56,6 +61,9 @@
             </ul>
           </div>
         </div>
+      </div>
+      <div class="xl:w-1/4 sm:w-1/3 block sm:hidden pb-5">
+        <img class="rounded-lg shadow-md object-contain" src="/pf.jpg" alt="My profile picture" />
       </div>
     </div>
   </div>
