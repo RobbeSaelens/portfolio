@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-neutral-900 h-screen">
+  <div>
     <AppHeader />
-    <router-view class="overflow y-auto"></router-view>
+    <router-view class="overflow-hidden"></router-view>
     <AppFooter />
   </div>
 </template>

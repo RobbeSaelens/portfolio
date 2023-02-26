@@ -41,9 +41,9 @@
         mt-4
         rounded-lg
         border border-teal-800
-        sm:flex-row sm:space-x-15 sm:mt-0 sm:text-sm sm:font-bold
-        font-medium
-        sm:border-0
+        sm:flex-row sm:space-x-15 sm:mt-0
+        font-bold
+        sm:text-sm sm:border-0
       "
     >
       <li class="text-white">
@@ -56,10 +56,12 @@
             pl-3
             rounded
             hover:bg-teal-800 hover:bg-opacity-35
-            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
+            sm:hover:bg-transparent sm:border-0
+            text-teal-800
+            sm:hover:text-teal-900 sm:p-0
           "
           to="/"
-          exact-active-class="text-teal-800"
+          exact-active-class="text-teal-900"
         >
           Home</router-link
         >
@@ -75,9 +77,11 @@
             pl-3
             rounded
             hover:bg-teal-800 hover:bg-opacity-35
-            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
+            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-900
+            text-teal-800
+            sm:p-0
           "
-          active-class="text-teal-800"
+          active-class="text-teal-900"
           to="/projects"
         >
           Projects</router-link
@@ -94,12 +98,14 @@
             pl-3
             rounded
             hover:bg-teal-800 hover:bg-opacity-35
-            sm:hover:bg-transparent sm:border-0 sm:hover:text-teal-800 sm:p-0
+            sm:hover:bg-transparent sm:border-0
+            text-teal-800
+            sm:hover:text-teal-900 sm:p-0
           "
           active-class="text-teal-800"
           to="/contact"
         >
-          Contact</router-link
+          About me</router-link
         >
       </li>
     </ul>
