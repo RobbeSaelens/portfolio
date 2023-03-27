@@ -49,7 +49,7 @@
       </div>
       <div>
         <img
-          class="lg:h-100 lg:w-100 h-50 w-50 hidden transform rounded-full object-cover transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 md:block"
+          class="animate-breathe lg:h-100 lg:w-100 h-50 w-50 hidden transform rounded-full object-cover shadow transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 md:block"
           src="/pf.jpg"
           alt="Robbe Saelens"
         />
@@ -102,6 +102,22 @@ export default {
   }
   60% {
     transform: translateX(3px);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 2s infinite;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
