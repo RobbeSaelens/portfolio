@@ -31,7 +31,7 @@
         </div>
         <div>
           <button
-            class="relative overflow-hidden rounded-2xl bg-teal-500 py-5 px-6 text-xl font-medium text-teal-900 transition-colors duration-500 ease-in-out hover:border-teal-900 hover:bg-teal-900 hover:text-white hover:shadow-lg md:py-5 md:px-8"
+            class="relative overflow-hidden rounded-2xl border-0 bg-teal-500 py-5 px-6 text-xl font-medium text-teal-900 transition-colors duration-500 ease-in-out hover:bg-teal-900 hover:text-white hover:shadow-lg md:py-5 md:px-8"
           >
             <a target="_blank" href="https://www.linkedin.com/in/robbe-saelens-1a14511b8/message">
               <span class="bg-gray absolute top-0 left-0 z-10 h-full w-full opacity-0"></span>

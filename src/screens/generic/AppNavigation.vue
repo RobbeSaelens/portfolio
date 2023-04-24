@@ -22,11 +22,15 @@
       ></path>
     </svg>
   </button>
-  <div :class="showMenu ? 'block' : 'hidden'" class="w-full sm:block sm:w-auto" id="navbar-default">
+  <div
+    :class="showMenu ? 'block' : 'hidden'"
+    class="w-full border-0 sm:block sm:w-auto"
+    id="navbar-default"
+  >
     <ul
-      class="sm:space-x-15 mt-4 flex flex-col rounded-lg border border-teal-800 p-4 font-bold sm:mt-0 sm:flex-row sm:border-0 sm:text-sm"
+      class="sm:space-x-15 mt-4 flex flex-col rounded-lg pt-4 font-bold sm:mt-0 sm:flex-row sm:border-0 sm:text-sm"
     >
-      <li :class="{ 'active-link text-teal-800': $route.path === '/projects' }">
+      <li :class="{ 'sm:active-link text-teal-800': $route.path === '/projects' }">
         <router-link
           class="hover:bg-opacity-35 flex rounded py-2 pr-5 pl-3 text-xl text-teal-800 hover:bg-teal-800 sm:border-0 sm:p-0 sm:hover:bg-transparent sm:hover:text-teal-900"
           active-class=""
@@ -36,7 +40,7 @@
         >
       </li>
 
-      <li :class="{ 'active-link text-teal-800': $route.path === '/contact' }">
+      <li :class="{ 'sm:active-link text-teal-800': $route.path === '/contact' }">
         <router-link
           class="hover:bg-opacity-35 flex rounded py-2 pr-5 pl-3 text-xl text-teal-800 hover:bg-teal-800 sm:border-0 sm:p-0 sm:hover:bg-transparent sm:hover:text-teal-900"
           active-class="text-teal-800"
