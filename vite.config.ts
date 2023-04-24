@@ -40,7 +40,7 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      external: ['/logo.svg'],
+      external: ['/Logo.svg'],
     },
   },
 })
