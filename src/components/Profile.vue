@@ -1,18 +1,18 @@
 <template>
-  <div class="mx-auto my-auto max-w-screen-2xl px-6">
+  <div class="mx-auto my-auto max-w-screen-2xl overflow-hidden px-6">
     <div class="space-x-15 mr-5% mt-10% flex items-center justify-between">
       <div class="text-teal-800">
         <a target="_blank" href="https://www.instagram.com/robbe.saelens/">
-          <Instagram class="mb-5 cursor-pointer" />
+          <Instagram class="mb-5 cursor-pointer hover:fill-teal-300" />
         </a>
         <a target="_blank" href="https://www.facebook.com/profile.php?id=100006223099352">
-          <Facebook class="mb-5 cursor-pointer"
+          <Facebook class="mb-5 cursor-pointer hover:fill-teal-300"
         /></a>
         <a target="_blank" href="https://www.linkedin.com/in/robbe-saelens-1a14511b8/">
-          <Linkedin class="mb-5 cursor-pointer"
+          <Linkedin class="mb-5 cursor-pointer hover:fill-teal-300"
         /></a>
         <a target="_blank" href="https://github.com/RobbeSaelens">
-          <Github class="mb-5 cursor-pointer"
+          <Github class="mb-5 cursor-pointer hover:fill-teal-300"
         /></a>
       </div>
       <div class="space-y-8">
@@ -41,17 +41,19 @@
             </a>
           </button>
 
-          <div class="mt-20 flex cursor-pointer items-center space-x-2">
+          <div
+            class="mt-20 flex cursor-pointer items-center space-x-2 text-teal-800 hover:text-teal-600"
+          >
             <a class="flex items-center" href="/projects">
               <ArrowRight class="animate-bouncer mr-2" />
-              <p class="text-lg font-medium text-black">Go to my projects</p>
+              <p class="text-lg font-medium text-teal-800 hover:text-teal-600">Go to my projects</p>
             </a>
           </div>
         </div>
       </div>
       <div>
         <img
-          class="animate-breathe lg:h-100 lg:w-100 h-50 w-50 hidden transform rounded-full object-cover shadow transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 md:block"
+          class="animate-breathe lg:h-100 lg:w-100 h-50 w-50 hidden rounded-full object-cover shadow md:block"
           src="/pf.jpg"
           alt="Robbe Saelens"
         />
@@ -109,6 +111,7 @@ export default {
 
 .animate-breathe {
   animation: breathe 2s infinite;
+  border-radius: rounded-full;
 }
 
 @keyframes breathe {

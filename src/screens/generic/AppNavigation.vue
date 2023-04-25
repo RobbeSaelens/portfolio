@@ -28,22 +28,22 @@
     id="navbar-default"
   >
     <ul
-      class="sm:space-x-15 mt-4 flex flex-col rounded-lg pt-4 font-bold sm:mt-0 sm:flex-row sm:border-0 sm:text-sm"
+      class="sm:space-x-15 mt-4 flex flex-col rounded-lg pt-4 font-medium sm:mt-0 sm:flex-row sm:border-0 sm:text-sm"
     >
-      <li :class="{ 'sm:active-link text-teal-800': $route.path === '/projects' }">
+      <li :class="{ 'sm:active-link': $route.path === '/projects' }">
         <router-link
-          class="hover:bg-opacity-35 flex rounded py-2 pr-5 pl-3 text-xl text-teal-800 hover:bg-teal-800 sm:border-0 sm:p-0 sm:hover:bg-transparent sm:hover:text-teal-900"
-          active-class=""
+          class="flex rounded py-2 pr-5 pl-3 text-xl text-teal-700 sm:border-0 sm:p-0 sm:hover:bg-transparent sm:hover:text-teal-700"
+          active-class="active-link text-teal-900"
           to="/projects"
         >
           Projects</router-link
         >
       </li>
 
-      <li :class="{ 'sm:active-link text-teal-800': $route.path === '/contact' }">
+      <li :class="{ 'sm:active-link ': $route.path === '/contact' }">
         <router-link
-          class="hover:bg-opacity-35 flex rounded py-2 pr-5 pl-3 text-xl text-teal-800 hover:bg-teal-800 sm:border-0 sm:p-0 sm:hover:bg-transparent sm:hover:text-teal-900"
-          active-class="text-teal-800"
+          class="hover:bg-opacity-35 flex rounded py-2 pr-5 pl-3 text-xl text-teal-700 sm:border-0 sm:p-0 sm:hover:bg-transparent sm:hover:text-teal-700"
+          active-class="active-link text-teal-900"
           to="/contact"
         >
           About me</router-link
@@ -69,17 +69,18 @@ export default {
 
 <style scoped>
 /* Add an underline to the active link */
-li.active-link {
+.active-link {
   position: relative;
 }
 
-li.active-link::after {
+.active-link::after {
   content: '';
   position: absolute;
   width: 100%;
   height: 2px;
-  bottom: 6;
+  bottom: -3px;
   background-color: teal;
+  font-style: bold;
   animation: underline 0.5s forwards;
 }
 

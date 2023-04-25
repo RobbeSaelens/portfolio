@@ -14,18 +14,18 @@
     </div>
     <div class="mt-10">
       <p class="mb-3 text-center text-xl font-bold text-teal-900">Get in touch!</p>
-      <div class="flex justify-center space-x-5 text-teal-700">
+      <div class="flex justify-center space-x-5 text-teal-800">
         <a target="_blank" href="https://www.instagram.com/robbe.saelens/">
-          <Instagram class="cursor-pointer" />
+          <Instagram class="cursor-pointer hover:fill-teal-300" />
         </a>
         <a target="_blank" href="https://www.facebook.com/profile.php?id=100006223099352">
-          <Facebook class="cursor-pointer"
+          <Facebook class="cursor-pointer hover:fill-teal-300"
         /></a>
         <a target="_blank" href="https://www.linkedin.com/in/robbe-saelens-1a14511b8/">
-          <Linkedin class="cursor-pointer"
+          <Linkedin class="cursor-pointer hover:fill-teal-300"
         /></a>
         <a target="_blank" href="https://github.com/RobbeSaelens">
-          <Github class="cursor-pointer"
+          <Github class="cursor-pointer hover:fill-teal-300"
         /></a>
       </div>
     </div>
