@@ -15,13 +15,13 @@
           <Github class="mb-5 cursor-pointer hover:fill-teal-300"
         /></a>
       </div>
-      <div class="space-y-8">
+      <div class="space-y-8 typewriter">
         <h1 class="text-dark-500 mb-5 text-5xl font-bold lg:text-7xl">
-          Robbe Saelens <span class="animate-waving-hand hidden md:inline-block">👋</span>
+          Robbe Saelens<span class="animate-waving-hand hidden md:inline-block"></span>
         </h1>
         <div class="flex items-center font-medium text-teal-800">
           <hr class="h-1px mr-5 hidden w-20 border-0 bg-teal-900 lg:block" />
-          <h1 class="text-3xl">Next Web Developer</h1>
+          <h2 class="text-3xl">Next Web Developer</h2>
         </div>
         <div>
           <p class="max-w-lg text-lg text-teal-800">
@@ -123,6 +123,36 @@ export default {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.06em solid teal; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: typing 2s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect and dissapear the cursor*/
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: teal;
   }
 }
 </style>
