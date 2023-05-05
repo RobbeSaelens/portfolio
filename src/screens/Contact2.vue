@@ -3,7 +3,7 @@
     About me
   </h1>
   <div class="mx-auto my-auto max-w-screen-2xl px-6">
-    <div class="pb-50 h-screen items-start justify-between overflow-y-auto lg:flex">
+    <div class="pb-50 h-screen items-start justify-between overflow-y-auto lg:flex lg:pb-0">
       <div class="max-w-150 lg:max-w-1/2 space-y-5">
         <div class="text-lg">
           <p>
