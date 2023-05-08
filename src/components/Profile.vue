@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto my-auto max-w-screen-2xl overflow-hidden px-6">
+  <div class="mx-auto my-auto max-w-screen-2xl overflow-hidden px-6 fade-out">
     <div class="space-x-15 mr-5% mt-10% flex items-center justify-between">
       <div class="text-teal-800">
         <a target="_blank" href="https://www.instagram.com/robbe.saelens/">

@@ -1,8 +1,8 @@
 <template>
-  <div class="pb-30 h-screen overflow-y-auto">
+  <div class="pb-30 h-screen overflow-y-auto fade-out">
     <div class="mx-auto max-w-screen-xl pt-10">
       <div class="text-center">
-        <h1 class="mx-5 mb-5 text-6xl font-bold text-teal-700 md:text-8xl">Robbe Saelens</h1>
+        <h1 class="mx-5 mb-5 text-6xl font-bold text-teal-700 md:text-8xl">About me</h1>
         <p class="text-lg font-medium text-teal-500">My story</p>
       </div>
       <div class="md:space-x-15 mx-5 mt-10 mb-10 md:flex md:justify-around">
@@ -46,7 +46,7 @@
               for a couple of months. There I mainly did automatisations for the internal workflow
               with Google App Script.
             </p>
-            <p>
+            <p class="mt-2">
               In February 2023 i started as an intern at
               <a
                 class="font-medium underline"

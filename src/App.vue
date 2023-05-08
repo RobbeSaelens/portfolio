@@ -47,6 +47,6 @@ export default {
   background-size: cover;
 }
 .fade-out {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
 }
 </style>

@@ -23,6 +23,11 @@ const routes: RouteRecordRaw[] = [
         name: 'AzureDetail',
         component: () => import('../screens/details/Azure.vue'),
       },
+      {
+        path: 'vitaldetail',
+        name: 'VitalDetail',
+        component: () => import('../screens/details/Vital.vue'),
+      },
     ],
   },
 
