@@ -5,7 +5,11 @@
     </h1>
     <div class="pb-50 mx-auto my-auto h-screen max-w-screen-2xl overflow-y-scroll px-6">
       <div class="galeri mb-10">
-        <div class="min-h-50" style="background-image: url('/mockup.jpg')"></div>
+        <div
+          @click="goToBinance"
+          class="min-h-50"
+          style="background-image: url('/mockup.jpg')"
+        ></div>
         <div
           @click="goToAzureDetail"
           class="min-h-50"
@@ -109,6 +113,9 @@ export default {
     },
     goToVitalDetail() {
       this.$router.push({ name: 'VitalDetail' })
+    },
+    goToBinance() {
+      this.$router.push({ name: 'BinanceDetail' })
     },
   },
 }

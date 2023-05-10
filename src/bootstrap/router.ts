@@ -28,6 +28,11 @@ const routes: RouteRecordRaw[] = [
         name: 'VitalDetail',
         component: () => import('../screens/details/Vital.vue'),
       },
+      {
+        path: 'binancedetail',
+        name: 'BinanceDetail',
+        component: () => import('../screens/details/Binance.vue'),
+      },
     ],
   },
 

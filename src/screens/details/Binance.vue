@@ -2,17 +2,20 @@
   <div class="pb-30 fade-out h-screen overflow-y-auto">
     <div class="mx-auto max-w-screen-xl pt-10">
       <div class="text-center">
-        <h1 class="mx-5 mb-10 text-6xl font-bold text-teal-700 md:text-8xl">Netflix</h1>
+        <h1 class="mx-5 mb-10 text-6xl font-bold text-teal-700 md:text-8xl">Binance app</h1>
         <div
           class="justify-center space-y-5 pt-5 text-lg font-medium text-teal-500 md:flex md:space-y-0 md:space-x-8"
         >
-          <p>Azure Cognitive Search & Amazon OpenSearch</p>
-          <p>Vue.js & TailwindCSS</p>
-          <p>Unstructured data</p>
+          <p>Adobe XD</p>
+          <p>LottieFiles</p>
+          <p>Adobe AfterEffects</p>
         </div>
       </div>
       <div>
-        <img class="scale mx-auto hidden md:block" src="/ResearchAzureMockup.png" />
+        <img
+          class="scale w-300 shadow-3xl mx-auto my-10 hidden rounded-lg md:block"
+          src="/Mockup.jpg"
+        />
         <img
           class="scale h-120 my-5 mx-auto block md:hidden"
           src="/AzureIphone.png"
@@ -20,21 +23,21 @@
         />
       </div>
       <div>
-        <div class="m-10 flex justify-between">
+        <div class="m-10 flex justify-between pt-10">
           <div class="mr-10 space-y-8">
             <div class="md:w-2/3">
               <h1 class="mb-10 text-5xl font-bold text-teal-800">Project Overview</h1>
               <h1 class="text-xl font-bold text-teal-800">About</h1>
               <p>
-                This is a project that I created as part of my bachelor thesis on integrating Search
-                as a Service with unstructured data. The project was built using Vue.js. For
-                unstructured data I utilized a text file containing over 8000 movies and TV shows.
+                This is a schoolproject that i created in Adobe XD. I wanted to create a smartwatch
+                app that could be used to watch your crypto. I used LottieFiles to implement the
+                animations in Adobe XD and Adobe AfterEffects to create them.
               </p>
             </div>
             <div>
               <h1 class="text-xl font-bold text-teal-800">Languages</h1>
               <p class="font-medium text-teal-500">
-                Amazon OpenSearch, Azure Cognitive Search, Vue.js, TailwindCSS
+                Adobe XD, LottieFiles, Adobe AfterEffects, Adobe Illustrator
               </p>
             </div>
             <div>
@@ -84,5 +87,9 @@ export default {
   .scale:hover {
     transform: scale(1.02);
   }
+}
+
+.shadow-3xl {
+  box-shadow: 30px 35px 60px -15px rgba(2, 2, 2, 2);
 }
 </style>

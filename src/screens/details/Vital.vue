@@ -1,10 +1,10 @@
 <template>
-  <div class="pb-30 h-screen overflow-y-auto fade-out">
+  <div class="pb-30 fade-out h-screen overflow-y-auto">
     <div class="mx-auto max-w-screen-xl pt-10">
       <div class="text-center">
-        <h1 class="mx-5 mb-10 text-6xl font-bold text-teal-700 md:text-8xl">VitalCities project</h1>
+        <h1 class="mx-5 mb-10 text-6xl font-bold text-teal-700 md:text-8xl">Vital Cities</h1>
         <div
-          class="sm:flex space-y-5 sm:space-y-0 justify-center sm:space-x-8 pt-5 text-lg font-medium text-teal-500"
+          class="justify-center space-y-5 pt-5 text-lg font-medium text-teal-500 sm:flex sm:space-y-0 sm:space-x-8"
         >
           <p>Gatsby</p>
           <p>Typescript</p>
@@ -14,18 +14,18 @@
         </div>
       </div>
       <div>
-        <img class="scale m-10 md:px-10 hidden md:block mx-auto" src="/VitalCitiesMockup.png" />
+        <img class="scale mx-auto hidden md:block" src="/VitalCitiesMockup.png" />
         <img
-          class="scale my-5 h-120 block mx-auto md:hidden"
+          class="scale h-120 my-5 mx-auto block md:hidden"
           src="/AzureIphone.png"
           alt="Iphone mockup"
         />
       </div>
       <div>
-        <div class="flex justify-between m-10">
-          <div class="space-y-8 mr-10">
+        <div class="m-10 flex justify-between">
+          <div class="mr-10 space-y-8">
             <div class="md:w-2/3">
-              <h1 class="text-5xl font-bold text-teal-800 mb-10">Project Overview</h1>
+              <h1 class="mb-10 text-5xl font-bold text-teal-800">Project Overview</h1>
               <h1 class="text-xl font-bold text-teal-800">About</h1>
               <p>
                 This is a group project that i created for school. As a group we had to create a
@@ -35,7 +35,7 @@
             </div>
             <div>
               <h1 class="text-xl font-bold text-teal-800">Languages</h1>
-              <p class="text-teal-500 font-medium">Gatsby, Typescript, css</p>
+              <p class="font-medium text-teal-500">Gatsby, Typescript, css</p>
             </div>
             <div>
               <h1 class="text-xl font-bold text-teal-800">Tools</h1>
