@@ -51,9 +51,9 @@
           About me</router-link
         >
       </li>
-      <li class="hidden cursor-pointer pl-10 text-teal-700 hover:text-teal-900 sm:block">
+      <!-- <li class="hidden cursor-pointer pl-10 text-teal-700 hover:text-teal-900 sm:block">
         <sunMedium />
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
