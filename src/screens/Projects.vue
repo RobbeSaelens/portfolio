@@ -1,32 +1,14 @@
 <template>
   <div class="fade-out">
-    <h1
-      class="mx-auto my-auto mb-10 max-w-screen-2xl px-6 text-4xl font-bold text-teal-800 dark:text-teal-300"
-    >
+    <h1 class="mx-auto my-auto mb-10 max-w-screen-2xl px-6 text-4xl font-bold text-teal-800 dark:text-teal-300">
       Favorite projects
     </h1>
     <div class="pb-50 mx-auto my-auto h-screen max-w-screen-2xl overflow-y-scroll px-6">
       <div class="galeri mb-10">
-        <div
-          @click="goToBinance"
-          class="min-h-50"
-          style="background-image: url('/mockup.jpg')"
-        ></div>
-        <div
-          @click="goToAzureDetail"
-          class="min-h-50"
-          style="background-image: url('/ResearchMockup.jpg')"
-        ></div>
-        <div
-          @click="goToVitalDetail"
-          class="min-h-50"
-          style="background-image: url('/Vital.jpg')"
-        ></div>
-        <div
-          @click="goToBikeRental"
-          class="min-h-50"
-          style="background-image: url('/BikeRental.jpg')"
-        ></div>
+        <div @click="goToBinance" class="min-h-50" style="background-image: url('/mockup.jpg')"></div>
+        <div @click="goToAzureDetail" class="min-h-50" style="background-image: url('/ResearchMockup.jpg')"></div>
+        <div @click="goToVitalDetail" class="min-h-50" style="background-image: url('/Vital.jpg')"></div>
+        <div @click="goToBikeRental" class="min-h-50" style="background-image: url('/BikeRental.jpg')"></div>
       </div>
       <div class="slider-container mb-10">
         <div class="slider">
@@ -44,14 +26,14 @@
             <Instagram class="cursor-pointer hover:fill-teal-300" />
           </a>
           <a target="_blank" href="https://www.facebook.com/profile.php?id=100006223099352">
-            <Facebook class="cursor-pointer hover:fill-teal-300"
-          /></a>
+            <Facebook class="cursor-pointer hover:fill-teal-300" />
+          </a>
           <a target="_blank" href="https://www.linkedin.com/in/robbe-saelens-1a14511b8/">
-            <Linkedin class="cursor-pointer hover:fill-teal-300"
-          /></a>
+            <Linkedin class="cursor-pointer hover:fill-teal-300" />
+          </a>
           <a target="_blank" href="https://github.com/RobbeSaelens">
-            <Github class="cursor-pointer hover:fill-teal-300"
-          /></a>
+            <Github class="cursor-pointer hover:fill-teal-300" />
+          </a>
         </div>
       </div>
     </div>
@@ -141,7 +123,8 @@ export default {
   width: 100%;
   gap: 1rem;
 }
-.galeri > div {
+
+.galeri>div {
   flex: 1;
   border-radius: 1rem;
   background-position: center;
@@ -152,7 +135,7 @@ export default {
   border: 1px solid #ccc;
 }
 
-.galeri > div:hover {
+.galeri>div:hover {
   flex: 3;
   background-size: auto 110%;
   cursor: pointer;
@@ -165,14 +148,15 @@ export default {
     display: block;
     height: auto;
   }
-  .galeri > div {
+
+  .galeri>div {
     flex: none;
     width: 100%;
     background-size: cover;
     margin-bottom: 2rem;
   }
 
-  .galeri > div:hover {
+  .galeri>div:hover {
     flex: none;
     background-size: cover;
   }
@@ -200,6 +184,7 @@ export default {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }

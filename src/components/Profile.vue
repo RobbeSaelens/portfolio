@@ -1,6 +1,6 @@
 <template>
   <div class="fade-out mx-auto my-auto max-w-screen-2xl overflow-hidden px-6">
-    <div class="space-x-15 mr-5% mt-10% flex items-center justify-between dark:text-teal-300">
+    <div class="sm:space-x-15 mr-5% mt-10% flex items-center justify-between dark:text-teal-300">
       <div class="text-teal-700 hidden sm:block">
         <a target="_blank" href="https://www.instagram.com/robbe.saelens/">
           <Instagram class="mb-5 cursor-pointer dark:hover:text-teal-500 hover:text-teal-900" />
@@ -23,6 +23,7 @@
           <hr class="h-2px mr-3 hidden w-10 border-0 bg-teal-600 lg:block dark:bg-gray" />
           <h2 class="text-3xl font-medium">Next Web Developer</h2>
         </div>
+        <img class="rounded-2 sm:hidden object-cover shadow" src="/pf2.jpg" alt="Robbe Saelens" />
         <div>
           <p class="max-w-lg text-lg text-teal-800 dark:text-white mb-3">
             I'm a full stack web developer based in Kortemark city, I like making

@@ -9,11 +9,7 @@
       </div>
       <div class="md:space-x-15 mx-5 mt-10 mb-10 md:flex md:justify-around">
         <div class="mb-10 w-full">
-          <img
-            src="/education.jpg"
-            alt="Robbe Saelens"
-            class="scale w-100% h-80 rounded-xl object-cover"
-          />
+          <img src="/education.jpg" alt="Robbe Saelens" class="scale w-100% h-80 rounded-xl object-cover" />
           <div class="w-full md:max-w-xl">
             <p class="mt-3 text-xl font-bold text-teal-800 dark:text-teal-300">Education</p>
             <p class="dark:text-gray">
@@ -23,39 +19,25 @@
             <p class="mt-2 dark:text-gray">
               After MIT I wanted to learn more about web development, so I started the bachelors
               degree Multimedia & Communication Technologies as
-              <a
-                class="font-medium underline"
-                target="_blank"
-                href="https://mct.be/programma/next-web-developer/"
-                >Next Web Developer</a
-              >.
+              <a class="font-medium underline" target="_blank" href="https://mct.be/programma/next-web-developer/">Next
+                Web Developer</a>.
             </p>
           </div>
         </div>
         <div class="w-full">
-          <img
-            src="/coding.jpg"
-            alt="Robbe Saelens"
-            class="scale w-100% h-80 rounded-xl object-cover"
-          />
+          <img src="/coding.jpg" alt="Robbe Saelens" class="scale w-100% h-80 rounded-xl object-cover" />
           <div class="w-full md:max-w-xl">
             <p class="mt-3 text-xl font-bold text-teal-800 dark:text-teal-300">Experience</p>
             <p class="dark:text-gray">
               I was an intern at
-              <a class="font-medium underline" target="_blank" href="https://www.acsystems.be/"
-                >AC Systems</a
-              >
+              <a class="font-medium underline" target="_blank" href="https://www.acsystems.be/">AC Systems</a>
               for a couple of months. There I mainly did automatisations for the internal workflow
               with Google App Script.
             </p>
             <p class="mt-2 dark:text-gray">
-              In February 2023 i started as an intern at
-              <a
-                class="font-medium underline"
-                target="_blank"
-                href="https://www.yourmindourwork.be/"
-                >Your Mind Our Work</a
-              >. After my internship I started working there as a
+              In February 2023 I started as an intern at
+              <a class="font-medium underline" target="_blank" href="https://www.yourmindourwork.be/">Your Mind Our
+                Work</a>. After my internship I started working there as a
               <strong>PHP & Magento developer </strong>.
             </p>
           </div>
@@ -63,35 +45,24 @@
       </div>
       <div class="md:space-x-15 mx-5 mt-10 mb-10 md:flex md:justify-around">
         <div class="mb-10 w-full">
-          <img
-            src="/about.jpg"
-            alt="Robbe Saelens"
-            class="w-100% scale h-80 rounded-xl object-cover"
-          />
+          <img src="/about.jpg" alt="Robbe Saelens" class="w-100% scale h-80 rounded-xl object-cover" />
           <div class="w-full md:max-w-xl">
             <p class="mt-3 text-xl font-bold text-teal-800 dark:text-teal-300">Teaching</p>
             <p class="dark:text-gray">
               In 2017 I started as instructor in equestrian sports. Since then I learned a lot about
               teaching and how to work with people. I currently work as an instructor at
-              <a class="font-medium underline" target="_blank" href="https://www.acsystems.be/"
-                >Sport Vlaanderen Woumen</a
-              >.
+              <a class="font-medium underline" target="_blank" href="https://www.acsystems.be/">Sport Vlaanderen
+                Woumen</a>.
             </p>
           </div>
         </div>
         <div class="w-full">
-          <img
-            src="/handshake.jpg"
-            alt="Robbe Saelens"
-            class="w-100% scale h-80 rounded-xl object-cover"
-          />
+          <img src="/handshake.jpg" alt="Robbe Saelens" class="w-100% scale h-80 rounded-xl object-cover" />
           <p class="mt-3 text-xl font-bold text-teal-800 dark:text-teal-300">Work together?</p>
           <p class="dark:text-gray">I'm available for freelance work and collaborations.</p>
           <p class="dark:text-gray">
             Mail me at
-            <span class="cursor-pointer font-medium underline" @click="mailto"
-              >robbe.saelens@telenet.be</span
-            >
+            <span class="cursor-pointer font-medium underline" @click="mailto">robbe.saelens@telenet.be</span>
           </p>
         </div>
       </div>
