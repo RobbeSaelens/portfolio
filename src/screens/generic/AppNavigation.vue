@@ -1,12 +1,19 @@
 <template>
   <div class="flex items-center justify-between">
-    <router-link
-      class="focus-visible:ring-2xl rounded-md outline-none tooltip"
-      @mouseover="toggleTooltip"
-      to="/"
-    >
+    <router-link class="focus-visible:ring-2xl rounded-md outline-none tooltip" to="/">
       <a href="/" @click="closeMenu">
-        <img src="/Logo.svg" alt="Logo" class="scale h-5 customFill" />
+        <img
+          class="hidden sm:block scale h-5 customFill"
+          @mouseover="toggleTooltip"
+          src="/Logo.svg"
+          alt="Logo"
+        />
+        <img
+          @mouseover="toggleTooltip2"
+          src="/Fav.png"
+          alt="Logo"
+          class="scale h-5 customFill block sm:hidden"
+        />
       </a>
     </router-link>
 
@@ -14,7 +21,7 @@
       @click="toggleNav"
       data-collapse-toggle="navbar-default"
       type="button"
-      class="hamburger rounded-lg p-2 text-sm text-teal-600 focus:outline-none focus:ring-2 focus:ring-gray-600 sm:hidden"
+      class="hamburger z-5000 rounded-lg p-2 text-sm text-teal-600 focus:outline-none focus:ring-2 focus:ring-gray-600 sm:hidden"
       aria-controls="navbar-default"
       aria-expanded="false"
     >
@@ -34,12 +41,12 @@
     </button>
   </div>
   <div
-    :class="showMenu ? 'block' : 'hidden'"
-    class="w-full items-center border-0 sm:block sm:w-auto"
+    :class="showMenu ? 'inline-block' : 'hidden'"
+    class="w-full items-center border-0 sm:block sm:w-auto absolute top-2 right-15 slide-in"
     id="navbar-default"
   >
     <ul
-      class="mt-4 justify-end flex items-center sm:space-x-5 rounded-lg sm:pt-4 font-medium sm:mt-0 sm:flex-row sm:space-x-8 sm:space-y-0 sm:border-0 sm:text-sm"
+      class="justify-end flex items-center rounded-lg pt-4 font-medium sm:mt-0 sm:flex-row sm:space-x-8 sm:space-y-0 sm:border-0 sm:text-sm"
     >
       <li :class="{ 'sm:active-link': $route.path === '/projects' }">
         <router-link
@@ -133,6 +140,13 @@ export default {
         tooltip.style.setProperty('--tooltip-content', `"${tooltipContent}"`)
       }
     }
+    const toggleTooltip2 = () => {
+      const tooltip = document.querySelector('.tooltip')
+      if (tooltip) {
+        // remove tooltip class
+        tooltip.classList.remove('tooltip')
+      }
+    }
 
     onMounted(() => {
       if (localStorage.theme === 'dark') {
@@ -149,12 +163,33 @@ export default {
       closeMenu,
       toggleTheme,
       toggleTooltip,
+      toggleTooltip2,
     }
   },
 }
 </script>
 
 <style>
+.slide-in {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+.hamburger {
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(20%);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
