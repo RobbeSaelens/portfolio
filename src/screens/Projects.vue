@@ -98,7 +98,6 @@ export default {
     ArrowRight,
   },
 
-  // go to azuredetail page
   methods: {
     goToAzureDetail() {
       this.$router.push({ name: 'AzureDetail' })

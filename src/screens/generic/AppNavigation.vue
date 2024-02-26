@@ -70,15 +70,15 @@
       <li
         class="hidden cursor-pointer text-teal-700 sm:border-0 sm:p-0 dark:text-teal-300 sm:block"
       >
-        <Moon id="Sun" class="h-6 w-6" @click="toggleTheme" />
-        <Sun id="Moon" class="h-6 w-6" @click="toggleTheme" />
+        <Moon id="Moon" class="h-6 w-6" @click="toggleTheme" />
+        <Sun id="Sun" class="h-6 w-6 hidden" @click="toggleTheme" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { Sun, Moon } from 'lucide-vue-next'
 
 export default {
@@ -102,14 +102,14 @@ export default {
       const Moon = document.getElementById('Moon')
 
       if (localStorage.theme === 'light') {
-        Sun.style.display = 'block'
-        Moon.style.display = 'none'
         localStorage.theme = 'dark'
-        document.documentElement.classList.remove('dark')
-      } else {
-        localStorage.theme = 'light'
-        Moon.style.display = 'block'
         Sun.style.display = 'none'
+        Moon.style.display = 'block'
+        document.documentElement.classList.remove('dark')
+      } else if (localStorage.theme === 'dark') {
+        localStorage.theme = 'light'
+        Moon.style.display = 'none'
+        Sun.style.display = 'block'
         document.documentElement.classList.add('dark')
       }
     }
@@ -148,15 +148,6 @@ export default {
       }
     }
 
-    onMounted(() => {
-      if (localStorage.theme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-      toggleTheme()
-    })
-
     return {
       showMenu,
       toggleNav,
@@ -170,23 +161,25 @@ export default {
 </script>
 
 <style>
-.slide-in {
-  animation: slideIn 0.5s ease-in-out forwards;
-}
-
 .hamburger {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
 @keyframes slideIn {
   0% {
-    transform: translateX(20%);
+    transform: translateX(2%);
   }
   50% {
     transform: translateX(-10%);
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .slide-in {
+    animation: slideIn 0.5s ease-in-out forwards;
   }
 }
 
@@ -244,13 +237,13 @@ export default {
 .active:focus,
 .active:active {
   border-radius: 5rem;
-  background-color: rgba(0, 128, 128, 0.1); /* Teal color with 50% opacity */
+  background-color: rgba(0, 128, 128, 0.15);
   transition: background-color 0.5s ease-in-out;
 }
 
 .active:hover {
   border-radius: 5rem;
-  background-color: rgba(0, 128, 128, 0.05); /* Teal color with 50% opacity */
+  background-color: rgba(0, 128, 128, 0.05);
   transition: background-color 0.5s ease-in-out;
 }
 </style>
