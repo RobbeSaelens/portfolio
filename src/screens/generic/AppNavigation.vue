@@ -143,7 +143,6 @@ export default {
     const toggleTooltip2 = () => {
       const tooltip = document.querySelector('.tooltip')
       if (tooltip) {
-        // remove tooltip class
         tooltip.classList.remove('tooltip')
       }
     }
@@ -243,7 +242,7 @@ export default {
 
 .active:hover {
   border-radius: 5rem;
-  background-color: rgba(0, 128, 128, 0.05);
-  transition: background-color 0.5s ease-in-out;
+  background-color: rgba(0, 128, 128, 0.8);
+  transition: background-color 0.2s ease-in-out;
 }
 </style>

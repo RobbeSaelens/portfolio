@@ -35,22 +35,22 @@
           </div>
         </div>
       </div>
-      <div class="mb-10 sm:mb-0">
-        <p class="mb-3 text-center text-xl font-bold text-teal-900 dark:text-teal-300">
+      <div class="mb-10 sm:mb-0 text-teal-700 dark:text-teal-600">
+        <p class="mb-3 text-center text-xl font-bold text-teal-800 dark:text-teal-500">
           Get in touch!
         </p>
-        <div class="flex justify-center space-x-5 text-teal-800">
+        <div class="flex justify-center space-x-5">
           <a target="_blank" href="https://www.instagram.com/robbe.saelens/">
-            <Instagram class="cursor-pointer hover:fill-teal-300" />
+            <Instagram class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
           </a>
           <a target="_blank" href="https://www.facebook.com/profile.php?id=100006223099352">
-            <Facebook class="cursor-pointer hover:fill-teal-300" />
+            <Facebook class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/robbe-saelens-1a14511b8/">
-            <Linkedin class="cursor-pointer hover:fill-teal-300" />
+            <Linkedin class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
           </a>
           <a target="_blank" href="https://github.com/RobbeSaelens">
-            <Github class="cursor-pointer hover:fill-teal-300" />
+            <Github class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
           </a>
         </div>
       </div>
