@@ -42,7 +42,7 @@
   </div>
   <div
     :class="showMenu ? 'inline-block' : 'hidden'"
-    class="w-full items-center border-0 sm:block sm:w-auto slide-in"
+    class="w-full items-center border-0 sm:block top-2 right-15 absolute sm:relative sm:w-auto slide-in"
     id="navbar-default"
   >
     <ul
@@ -242,7 +242,7 @@ export default {
 
 .active:hover {
   border-radius: 5rem;
-  background-color: rgba(0, 128, 128, 0.8);
+  background-color: rgba(0, 128, 128, 0.1);
   transition: background-color 0.2s ease-in-out;
 }
 </style>
