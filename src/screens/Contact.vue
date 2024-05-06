@@ -48,13 +48,14 @@
                 href="https://www.yourmindourwork.be/"
                 >Your Mind Our Work</a
               >. After my internship I started working there as a
-              <strong>PHP & Magento developer </strong>.
+              <strong>PHP & Magento developer.</strong>
             </p>
+            <br />
             <p>
               I transitioned from my role as a PHP & Magento developer at YMOW to become a
               <strong> Junior Backend Developer </strong> at
-              <a class="font-medium underline" target="_blank" href="https://www.dms.be/"> DMS</a
-              >.<br />W Excited to bring my experience to new projects and continue growing!
+              <a class="font-medium underline" target="_blank" href="https://www.dms.be/"> DMS</a>.
+              Excited to bring my experience to new projects and continue growing!
             </p>
           </div>
         </div>
