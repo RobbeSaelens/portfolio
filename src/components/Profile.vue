@@ -33,13 +33,8 @@
             <strong class="flex items-center">
               <Briefcase class="mr-1 text-teal-800" />
               @
-              <a
-                target="blank"
-                href="https://www.yourmindourwork.be/"
-                class="hover:text-teal-600 mr-1"
-                >YMOW
-              </a>
-              as PHP developer.
+              <a target="blank" href="https://www.dms.be/" class="hover:text-teal-600 mr-1">DMS </a>
+              as Junior Backend Developer.
             </strong>
             <strong class="flex items-center mt-2">
               <GraduationCap class="mr-1 text-teal-800" />
