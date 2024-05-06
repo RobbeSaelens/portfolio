@@ -40,14 +40,6 @@
           />
           <div class="w-full md:max-w-xl">
             <p class="mt-3 text-xl font-bold text-teal-800 dark:text-teal-300">Experience</p>
-            <p class="dark:text-gray">
-              I was an intern at
-              <a class="font-medium underline" target="_blank" href="https://www.acsystems.be/"
-                >AC Systems</a
-              >
-              for a couple of months. There I mainly did automatisations for the internal workflow
-              with Google App Script.
-            </p>
             <p class="mt-2 dark:text-gray">
               In February 2023 I started as an intern at
               <a
@@ -57,6 +49,12 @@
                 >Your Mind Our Work</a
               >. After my internship I started working there as a
               <strong>PHP & Magento developer </strong>.
+            </p>
+            <p>
+              I transitioned from my role as a PHP & Magento developer at YMOW to become a
+              <strong> Junior Backend Developer </strong> at
+              <a class="font-medium underline" target="_blank" href="https://www.dms.be/"> DMS </a>.
+              Excited to bring my experience to new projects and continue growing!
             </p>
           </div>
         </div>
