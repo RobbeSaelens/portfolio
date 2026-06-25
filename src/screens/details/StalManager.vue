@@ -23,7 +23,7 @@
         <img
           class="mx-auto my-10 w-full max-w-3xl rounded-lg"
           src="/stal-manager.png"
-          alt="{{ $t('stalManager.alt') }}"
+          :alt="$t('stalManager.alt')"
           loading="lazy"
         />
       </div>

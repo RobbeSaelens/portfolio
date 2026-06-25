@@ -23,7 +23,7 @@
         <img
           class="mx-auto my-10 w-full max-w-3xl rounded-lg"
           src="/exulta-detail.jpg"
-          alt="{{ $t('exulta.alt') }}"
+          :alt="$t('exulta.alt')"
           loading="lazy"
         />
       </div>
