@@ -4,7 +4,7 @@
       <header class="text-center">
         <h1 class="terminal-title justify-center text-2xl font-bold sm:text-3xl lg:text-5xl">
           <span class="terminal-prompt">&gt;</span>
-          <span class="terminal-text">Stal Manager</span>
+          <span class="terminal-text">{{ $t('stalManager.title') }}</span>
           <span class="terminal-cursor" aria-hidden="true"></span>
         </h1>
         <p class="terminal-subtitle mt-3 text-sm tracking-wide md:text-base">
@@ -23,32 +23,29 @@
         <img
           class="mx-auto my-10 w-full max-w-3xl rounded-lg"
           src="/stal-manager.png"
-          alt="Stal Manager horse stable finance dashboard mockup"
+          alt="{{ $t('stalManager.alt') }}"
           loading="lazy"
         />
       </div>
       <div class="mx-5 pt-10 md:mx-10">
         <div class="mb-10">
           <h2 class="mb-3 text-4xl font-bold md:text-5xl" style="color: var(--color-text-primary)">
-            Project Overview
+            {{ $t('stalManager.overview') }}
           </h2>
         </div>
 
         <div class="mb-8 flex flex-col gap-8 md:flex-row">
           <div class="overview-card flex-1 px-6 py-8 md:px-8">
-            <h3 class="overview-label">About</h3>
+            <h3 class="overview-label">{{ $t('stalManager.about') }}</h3>
             <p class="text-lg leading-relaxed" style="color: var(--color-text-secondary)">
-              A comprehensive financial management dashboard for horse stable owners. Track expenses
-              and income per horse, generate financial reports with interactive charts, and manage
-              stable finances efficiently. Built with Next.js App Router, Auth0 authentication,
-              Prisma ORM, and shadcn/ui components for a clean responsive experience.
+              {{ $t('stalManager.aboutText') }}
             </p>
           </div>
         </div>
 
         <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div class="overview-card px-6 py-8">
-            <h3 class="overview-label">Languages & Frameworks</h3>
+            <h3 class="overview-label">{{ $t('stalManager.languages') }}</h3>
             <div class="flex flex-wrap gap-2">
               <span class="tag-pill">Next.js 16</span>
               <span class="tag-pill">React 19</span>
@@ -59,7 +56,7 @@
             </div>
           </div>
           <div class="overview-card px-6 py-8">
-            <h3 class="overview-label">Tools & Services</h3>
+            <h3 class="overview-label">{{ $t('stalManager.tools') }}</h3>
             <div class="flex flex-wrap gap-2">
               <span class="tag-pill">Visual Studio Code</span>
               <span class="tag-pill">Auth0 (Auth.js)</span>
@@ -77,7 +74,7 @@
             <span
               class="font-medium transition-colors"
               style="color: var(--color-accent); font-family: var(--font-mono)"
-              >projects</span
+              >{{ $t('stalManager.viewOther') }}</span
             >
             <ArrowRight
               class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"

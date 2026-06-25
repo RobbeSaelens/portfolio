@@ -1,8 +1,8 @@
 <template>
   <div ref="rootRef" class="chatbot-root">
     <!-- Floating toggle button -->
-    <button v-if="!isOpen" @click="open" class="chatbot-fab" aria-label="Open terminal">
-      <span class="fab-text">&gt;_</span>
+    <button @click="toggle" class="chatbot-fab" aria-label="Toggle terminal">
+      <span class="fab-text">{{ isOpen ? '✕' : '&gt;_' }}</span>
     </button>
 
     <!-- Terminal window -->
@@ -41,12 +41,12 @@
             <!-- Bot message -->
             <div v-if="msg.actor === 'bot'" class="terminal-line bot-line">
               <span class="prompt-symbol bot-prompt">❯</span>
-              <span class="line-text">{{ msg.text }}</span>
+              <span class="line-text">{{ $t(msg.key) }}</span>
             </div>
             <!-- User message -->
             <div v-else class="terminal-line user-line">
               <span class="prompt-symbol user-prompt">$</span>
-              <span class="line-text user-text">{{ msg.text }}</span>
+              <span class="line-text user-text">{{ msg.key }}</span>
             </div>
           </div>
 
@@ -94,7 +94,7 @@ import { X } from 'lucide-vue-next'
 
 interface Message {
   actor: 'bot' | 'user'
-  text: string
+  key: string
 }
 
 const KEYWORDS: { keys: string[]; responseKey: string }[] = [
@@ -103,9 +103,31 @@ const KEYWORDS: { keys: string[]; responseKey: string }[] = [
     responseKey: 'chat.greeting',
   },
   {
-    keys: ['skills', 'skill', 'tech', 'stack', 'technologie', 'vaardigheden', 'kunnen', 'know'],
+    keys: [
+      'skills',
+      'skill',
+      'tech',
+      'stack',
+      'technologie',
+      'vaardigheden',
+      'kunnen',
+      'know',
+      'can do',
+    ],
     responseKey: 'chat.skills',
   },
+  // Specific project names → dedicated responses
+  { keys: ['exulta'], responseKey: 'chat.project-exulta' },
+  { keys: ['stal manager', 'stalmanager'], responseKey: 'chat.project-stalmanager' },
+  { keys: ['scan2talk', 'scan', 'qr'], responseKey: 'chat.project-scan2talk' },
+  { keys: ['binance', 'crypto', 'smartwatch'], responseKey: 'chat.project-binance' },
+  {
+    keys: ['azure', 'netflix', 'opensearch', 'search app', 'thesis'],
+    responseKey: 'chat.project-azure',
+  },
+  { keys: ['vital', 'vital cities', 'gatsby'], responseKey: 'chat.project-vital' },
+  { keys: ['bikerental', 'bike rental', 'bike', 'nestjs'], responseKey: 'chat.project-bikerental' },
+  // General projects
   {
     keys: ['project', 'projects', 'projecten', 'built', 'made', 'gemaakt', 'portfolio'],
     responseKey: 'chat.projects',
@@ -125,7 +147,17 @@ const KEYWORDS: { keys: string[]; responseKey: string }[] = [
     responseKey: 'chat.contact',
   },
   {
-    keys: ['experience', 'work', 'job', 'ervaring', 'gewerkt', 'dynamate', 'intern', 'stage'],
+    keys: [
+      'experience',
+      'work',
+      'job',
+      'ervaring',
+      'gewerkt',
+      'dynamate',
+      'intern',
+      'stage',
+      'your mind',
+    ],
     responseKey: 'chat.experience',
   },
   {
@@ -141,8 +173,28 @@ const KEYWORDS: { keys: string[]; responseKey: string }[] = [
       'bachelor',
       'degree',
       'diploma',
+      'mit',
     ],
     responseKey: 'chat.education',
+  },
+  {
+    keys: ['where', 'location', 'geluwe', 'gilwe', 'belgium', 'belgie', 'woon', 'live', 'based'],
+    responseKey: 'chat.location',
+  },
+  {
+    keys: [
+      'horse',
+      'paard',
+      'equestrian',
+      'riding',
+      'instructor',
+      'instructeur',
+      'hobby',
+      'teaching',
+      'sport vlaanderen',
+      'woumen',
+    ],
+    responseKey: 'chat.hobbies',
   },
   {
     keys: ['about', 'who', 'wie', 'over', 'vertel', 'tell', 'jezelf', 'yourself'],
@@ -190,17 +242,17 @@ export default {
       })
     }
 
-    const addMessage = (actor: 'bot' | 'user', text: string) => {
-      messages.value.push({ actor, text })
+    const addMessage = (actor: 'bot' | 'user', keyOrText: string) => {
+      messages.value.push({ actor, key: keyOrText })
       scrollToBottom()
     }
 
     const processMessage = (userText: string) => {
       const responseKey = findResponse(userText)
       if (responseKey) {
-        addMessage('bot', t(responseKey))
+        addMessage('bot', responseKey)
       } else {
-        addMessage('bot', t('chat.fallback'))
+        addMessage('bot', 'chat.fallback')
       }
     }
 
@@ -233,13 +285,21 @@ export default {
       )
     }
 
+    const toggle = () => {
+      if (isOpen.value) {
+        close()
+      } else {
+        open()
+      }
+    }
+
     const open = () => {
       isOpen.value = true
       if (messages.value.length === 0) {
         isTyping.value = true
         setTimeout(() => {
           isTyping.value = false
-          addMessage('bot', t('chat.welcome'))
+          addMessage('bot', 'chat.welcome')
         }, 600)
       }
       nextTick(() => inputRef.value?.focus())
@@ -280,6 +340,7 @@ export default {
       quickReplies,
       send,
       sendQuickReply,
+      toggle,
       open,
       close,
     }
@@ -288,13 +349,16 @@ export default {
 </script>
 
 <style>
-/* ── Root container: sits above footer in layout flow ── */
+/* ── Root container: fixed bottom-right corner ── */
 .chatbot-root {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 1.5rem 1.25rem;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.5rem;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
 }
 
 /* ── FAB button ── */
@@ -335,12 +399,12 @@ export default {
 /* ── Terminal window ── */
 .chatbot-window {
   position: absolute;
-  bottom: 5rem;
-  right: 1.5rem;
+  bottom: 4rem;
+  right: 0;
   width: 26rem;
-  max-width: calc(100vw - 2rem);
+  max-width: calc(100vw - 3rem);
   height: 30rem;
-  max-height: calc(100vh - 10rem);
+  max-height: calc(100vh - 8rem);
   background: #0c0c0d;
   border: 1px solid rgba(20, 184, 166, 0.25);
   border-radius: 0.5rem;
@@ -575,13 +639,15 @@ export default {
 }
 
 @media (max-width: 480px) {
+  .chatbot-root {
+    bottom: 0.75rem;
+    right: 0.5rem;
+  }
   .chatbot-window {
     width: calc(100vw - 1rem);
-    right: 0.25rem;
+    max-width: calc(100vw - 1rem);
+    right: 0;
     border-radius: 0.375rem;
-  }
-  .chatbot-root {
-    padding: 0 0.25rem 1rem;
   }
   .banner-ascii {
     font-size: 0.34rem;

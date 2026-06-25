@@ -27,8 +27,10 @@
           </button>
         </div>
         <div v-if="selectedTags.length" class="filter-info">
-          <span class="filter-count">{{ filteredProjects.length }} / {{ projects.length }}</span>
-          <button class="filter-clear" @click="clearFilters">clear</button>
+          <span class="filter-count">{{
+            $t('projects.showingCount', { count: filteredProjects.length, total: projects.length })
+          }}</span>
+          <button class="filter-clear" @click="clearFilters">{{ $t('projects.clear') }}</button>
         </div>
       </div>
 
@@ -38,10 +40,10 @@
           v-for="(project, index) in filteredProjects"
           :key="project.id"
           :ref="(el) => setCardRef(el, index)"
-          class="project-card"
-          :aria-label="`View ${project.name} project details`"
+          :class="['project-card', { 'coming-soon-card': project.comingSoon }]"
+          :aria-label="project.comingSoon ? 'Coming soon' : `View ${project.name} project details`"
           :style="{ '--stagger-delay': `${index * 100}ms` }"
-          @click="navigateTo(project.route)"
+          @click="project.comingSoon ? null : navigateTo(project.route)"
         >
           <!-- Image container -->
           <div class="card-image-wrapper">
@@ -56,9 +58,12 @@
             <div v-else class="card-image-placeholder">
               <span class="placeholder-text">{{ project.name }}</span>
             </div>
-            <div class="card-overlay">
+            <div v-if="project.comingSoon" class="card-overlay coming-soon-overlay">
+              <span class="overlay-text coming-soon-text">Coming Soon</span>
+            </div>
+            <div v-else class="card-overlay">
               <span class="overlay-text">
-                View project
+                {{ $t('projects.viewProject') }}
                 <ArrowRight class="overlay-arrow" :size="18" :stroke-width="2" />
               </span>
             </div>
@@ -66,9 +71,17 @@
 
           <!-- Card body -->
           <div class="card-body">
-            <h2 class="card-title">{{ project.name }}</h2>
+            <div class="card-header-row">
+              <h2 class="card-title">{{ project.name }}</h2>
+              <div class="card-header-meta">
+                <span v-if="project.date" class="card-date">{{ project.date }}</span>
+              </div>
+            </div>
             <p class="card-description">{{ project.description }}</p>
             <div class="card-tags">
+              <template v-if="project.comingSoon">
+                <span class="tag-pill tag-coming-soon">Coming Soon</span>
+              </template>
               <span v-for="tag in project.tags" :key="tag" class="tag-pill">
                 {{ tag }}
               </span>
@@ -101,6 +114,7 @@ export default {
           tags: ['Laravel', 'React', 'Inertia.js', 'Filament'],
           image: '/exulta.jpg',
           route: 'ExultaDetail',
+          date: '2025',
         },
         {
           id: 'stal-manager',
@@ -109,6 +123,7 @@ export default {
           tags: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
           image: '/stal-manager.png',
           route: 'StalManagerDetail',
+          date: '2025',
         },
         {
           id: 'scan2talk',
@@ -117,6 +132,7 @@ export default {
           tags: ['Laravel', 'Vue.js', 'Inertia.js', 'PWA'],
           image: '',
           route: 'Scan2TalkDetail',
+          date: '2025',
         },
         {
           id: 'binance',
@@ -125,6 +141,7 @@ export default {
           tags: ['Adobe XD', 'LottieFiles', 'After Effects'],
           image: '/Mockup.jpg',
           route: 'BinanceDetail',
+          date: '2022',
         },
         {
           id: 'azure',
@@ -133,6 +150,7 @@ export default {
           tags: ['Vue.js', 'TailwindCSS', 'Azure', 'OpenSearch'],
           image: '/ResearchMockup.jpg',
           route: 'AzureDetail',
+          date: '2022',
         },
         {
           id: 'vital',
@@ -141,6 +159,7 @@ export default {
           tags: ['Gatsby', 'TypeScript', 'Netlify'],
           image: '/Vital.JPG',
           route: 'VitalDetail',
+          date: '2021',
         },
         {
           id: 'bikerental',
@@ -149,6 +168,16 @@ export default {
           tags: ['Vue.js', 'NestJS', 'MongoDB'],
           image: '/BikeRental.jpg',
           route: 'BikeRentalDetail',
+          date: '2022',
+        },
+        {
+          id: 'coming-soon',
+          name: 'Coming Soon',
+          description: 'New project in the works',
+          tags: [],
+          image: '',
+          route: '',
+          comingSoon: true,
         },
       ],
       observer: null,
@@ -169,12 +198,15 @@ export default {
     },
     filteredProjects() {
       if (!this.selectedTags.length) return this.projects
-      return this.projects.filter((p) => p.tags.some((t) => this.selectedTags.includes(t)))
+      return this.projects.filter(
+        (p) => p.comingSoon || p.tags.some((t) => this.selectedTags.includes(t)),
+      )
     },
   },
 
   watch: {
     filteredProjects() {
+      this.cardRefs = {}
       this.$nextTick(() => this.reobserve())
     },
   },
@@ -546,6 +578,47 @@ export default {
 }
 
 /* =============================================
+   Coming Soon Card
+   ============================================= */
+.coming-soon-card {
+  cursor: default !important;
+}
+.coming-soon-card:hover {
+  transform: none !important;
+  border-color: var(--color-border) !important;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.02) !important;
+}
+.coming-soon-card:hover .card-image {
+  transform: none !important;
+}
+
+.coming-soon-overlay {
+  opacity: 1 !important;
+}
+.coming-soon-text {
+  transform: none !important;
+  opacity: 0.65 !important;
+  font-style: italic;
+}
+
+.tag-coming-soon {
+  background: linear-gradient(135deg, var(--color-accent-soft), transparent);
+  border: 1px dashed var(--color-border-glow);
+  animation: pulse-coming-soon 2s ease-in-out infinite;
+}
+@keyframes pulse-coming-soon {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =============================================
    Card Image
    ============================================= */
 .card-image-wrapper {
@@ -633,8 +706,22 @@ export default {
   padding: 1.25rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 0.5rem;
   flex: 1;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-header-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .card-title {
@@ -643,6 +730,16 @@ export default {
   color: var(--color-text-primary);
   line-height: 1.3;
   margin: 0;
+  min-width: 0;
+  flex: 1;
+}
+
+.card-date {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .card-description {
@@ -652,9 +749,6 @@ export default {
   margin: 0;
 }
 
-/* =============================================
-   Tech Tag Pills
-   ============================================= */
 .card-tags {
   display: flex;
   flex-wrap: wrap;

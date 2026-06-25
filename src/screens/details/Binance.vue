@@ -4,7 +4,7 @@
       <header class="text-center">
         <h1 class="terminal-title justify-center text-2xl font-bold sm:text-3xl lg:text-5xl">
           <span class="terminal-prompt">&gt;</span>
-          <span class="terminal-text">{{ $t('binance.title') }} app</span>
+          <span class="terminal-text">{{ $t('binance.title') }}</span>
           <span class="terminal-cursor" aria-hidden="true"></span>
         </h1>
         <p class="terminal-subtitle mt-3 text-sm tracking-wide md:text-base">
