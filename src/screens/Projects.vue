@@ -278,19 +278,6 @@ export default {
         this.$router.push({ name: routeName })
       }
     },
-
-    goToBinance() {
-      this.$router.push({ name: 'BinanceDetail' })
-    },
-    goToAzureDetail() {
-      this.$router.push({ name: 'AzureDetail' })
-    },
-    goToVitalDetail() {
-      this.$router.push({ name: 'VitalDetail' })
-    },
-    goToBikeRental() {
-      this.$router.push({ name: 'BikeRentalDetail' })
-    },
   },
 }
 </script>

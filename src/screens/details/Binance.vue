@@ -93,18 +93,9 @@
 </template>
 
 <script lang="ts">
-import { Briefcase, GraduationCap, ArrowRight } from 'lucide-vue-next'
+import { ArrowRight } from 'lucide-vue-next'
 export default {
-  components: {
-    Briefcase,
-    GraduationCap,
-    ArrowRight,
-  },
-  methods: {
-    mailto() {
-      window.location.href = 'mailto:robbe.saelens@telenet.be'
-    },
-  },
+  components: { ArrowRight },
 }
 </script>
 
