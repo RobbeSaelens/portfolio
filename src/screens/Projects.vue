@@ -1,154 +1,166 @@
 <template>
-  <div class="fade-out flex flex-1 flex-col overflow-x-hidden">
-    <h1
-      class="mx-auto mb-8 max-w-screen-2xl px-6 pt-2 text-5xl font-bold text-teal-800 dark:text-teal-300 md:text-7xl"
-    >
-      Favorite projects
-    </h1>
-    <div class="content-wrapper mx-auto flex min-h-0 max-w-screen-2xl flex-1 flex-col px-6">
-      <div class="galeri mb-3">
-        <button
-          @click="goToBinance"
-          class="galeri-item"
-          style="background-image: url('/Mockup.jpg')"
-          :aria-label="'View Binance project details'"
-        ></button>
-        <button
-          @click="goToAzureDetail"
-          class="galeri-item"
-          style="background-image: url('/ResearchMockup.jpg')"
-          :aria-label="'View Azure Search project details'"
-        ></button>
-        <button
-          @click="goToVitalDetail"
-          class="galeri-item"
-          style="background-image: url('/Vital.JPG')"
-          :aria-label="'View Vital Cities project details'"
-        ></button>
-        <button
-          @click="goToBikeRental"
-          class="galeri-item"
-          style="background-image: url('/BikeRental.jpg')"
-          :aria-label="'View BikeRental project details'"
-        ></button>
-      </div>
-      <div class="slider-container mb-4">
-        <div class="slider">
-          <div class="dark:text-teal-300" v-for="(tag, index) in duplicatedHashtags" :key="index">
-            {{ tag }}
-          </div>
-        </div>
-      </div>
-      <div class="my-4 text-teal-700 dark:text-teal-600">
-        <p class="mb-2 text-center text-xl font-bold text-teal-800 dark:text-teal-500">
-          Get in touch!
+  <div class="projects-page flex flex-1 flex-col">
+    <div class="mx-auto w-full max-w-screen-2xl px-4 pb-8 sm:px-6">
+      <!-- Terminal-style title -->
+      <header class="mb-10 mt-8 md:mb-14 md:mt-12">
+        <h1 class="terminal-title text-2xl font-bold sm:text-3xl lg:text-5xl">
+          <span class="terminal-prompt">&gt;</span>
+          <span class="terminal-text">{{ $t('projects.title').toLowerCase() }}</span>
+          <span class="terminal-cursor" aria-hidden="true"></span>
+        </h1>
+        <p class="terminal-subtitle mt-3 text-sm tracking-wide md:text-base">
+          <span class="opacity-50">$</span> ls -la ./selected-work
         </p>
-        <div class="flex justify-center space-x-5">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.instagram.com/robbe.saelens/"
-            aria-label="Follow me on Instagram"
-          >
-            <Instagram class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.facebook.com/profile.php?id=100006223099352"
-            aria-label="Connect on Facebook"
-          >
-            <Facebook class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/robbe-saelens-1a14511b8/"
-            aria-label="Connect on LinkedIn"
-          >
-            <Linkedin class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/RobbeSaelens"
-            aria-label="View my GitHub profile"
-          >
-            <Github class="cursor-pointer dark:hover:text-teal-300 hover:text-teal-900" />
-          </a>
-        </div>
+      </header>
+
+      <!-- Project cards grid -->
+      <div class="projects-grid">
+        <button
+          v-for="(project, index) in projects"
+          :key="project.id"
+          :ref="(el) => setCardRef(el, index)"
+          class="project-card"
+          :aria-label="`View ${project.name} project details`"
+          :style="{ '--stagger-delay': `${index * 100}ms` }"
+          @click="navigateTo(project.route)"
+        >
+          <!-- Image container -->
+          <div class="card-image-wrapper">
+            <img
+              :src="project.image"
+              :alt="`${project.name} project mockup`"
+              class="card-image"
+              loading="lazy"
+            />
+            <div class="card-overlay">
+              <span class="overlay-text">
+                {{ $t('projects.viewProject') }}
+                <ArrowRight class="overlay-arrow" :size="18" :stroke-width="2" />
+              </span>
+            </div>
+          </div>
+
+          <!-- Card body -->
+          <div class="card-body">
+            <h2 class="card-title">{{ project.name }}</h2>
+            <p class="card-description">{{ project.description }}</p>
+            <div class="card-tags">
+              <span v-for="tag in project.tags" :key="tag" class="tag-pill">
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {
-  Verified,
-  Album,
-  Instagram,
-  Linkedin,
-  Facebook,
-  Github,
-  MessageCircle,
-  Mouse,
-  ArrowRight,
-} from 'lucide-vue-next'
+import { ArrowRight } from 'lucide-vue-next'
 
 export default {
-  data() {
-    return {
-      hashtags: [
-        '#vuejs',
-        '#javascript',
-        '#XD',
-        '#SaaS',
-        '#UI',
-        '#UX',
-        '#AWSOpenSearch',
-        '#AWS',
-        '#AzureCognitiveSearch',
-        '#Azure',
-        '#AzureSearch',
-        '#gatsby',
-        '#graphql',
-        '#scrollytelling',
-        '#css',
-        '#html',
-        '#vue',
-        '#tailwindcss',
-        '#tailwind',
-        '#react',
-        '#reactnative',
-      ],
-    }
-  },
-  computed: {
-    duplicatedHashtags() {
-      return this.hashtags.concat(this.hashtags)
-    },
-  },
+  name: 'Projects',
+
   components: {
-    Verified,
-    Album,
-    Instagram,
-    Linkedin,
-    Facebook,
-    Github,
-    Mouse,
-    MessageCircle,
     ArrowRight,
   },
 
+  data() {
+    return {
+      projects: [
+        {
+          id: 'binance',
+          name: 'Binance App',
+          description: 'Smartwatch crypto companion',
+          tags: ['Adobe XD', 'LottieFiles', 'After Effects'],
+          image: '/Mockup.jpg',
+          route: 'BinanceDetail',
+        },
+        {
+          id: 'azure',
+          name: 'Azure Search',
+          description: 'Netflix-style search with AI',
+          tags: ['Vue.js', 'TailwindCSS', 'Azure', 'OpenSearch'],
+          image: '/ResearchMockup.jpg',
+          route: 'AzureDetail',
+        },
+        {
+          id: 'vital',
+          name: 'Vital Cities',
+          description: 'City vitality data dashboard',
+          tags: ['Gatsby', 'TypeScript', 'Netlify'],
+          image: '/Vital.JPG',
+          route: 'VitalDetail',
+        },
+        {
+          id: 'bikerental',
+          name: 'BikeRental',
+          description: 'Bike rental management app',
+          tags: ['Vue.js', 'NestJS', 'MongoDB'],
+          image: '/BikeRental.jpg',
+          route: 'BikeRentalDetail',
+        },
+      ],
+      observer: null,
+      cardRefs: [],
+    }
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      this.initObserver()
+    })
+  },
+
+  beforeUnmount() {
+    if (this.observer) {
+      this.observer.disconnect()
+    }
+  },
+
   methods: {
+    setCardRef(el, index) {
+      if (el) {
+        this.cardRefs[index] = el
+      }
+    },
+
+    initObserver() {
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible')
+              this.observer.unobserve(entry.target)
+            }
+          })
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px',
+        },
+      )
+
+      this.cardRefs.forEach((card) => {
+        if (card) {
+          this.observer.observe(card)
+        }
+      })
+    },
+
+    navigateTo(routeName) {
+      this.$router.push({ name: routeName })
+    },
+
+    goToBinance() {
+      this.$router.push({ name: 'BinanceDetail' })
+    },
     goToAzureDetail() {
       this.$router.push({ name: 'AzureDetail' })
     },
     goToVitalDetail() {
       this.$router.push({ name: 'VitalDetail' })
-    },
-    goToBinance() {
-      this.$router.push({ name: 'BinanceDetail' })
     },
     goToBikeRental() {
       this.$router.push({ name: 'BikeRentalDetail' })
@@ -158,94 +170,387 @@ export default {
 </script>
 
 <style>
-.galeri {
+/* =============================================
+   CSS Custom Properties
+   ============================================= */
+:root {
+  --color-bg: #f8fafb;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f7f6;
+  --color-border: rgba(0, 128, 128, 0.1);
+  --color-border-glow: rgba(0, 128, 128, 0.35);
+  --color-text-primary: #134e4a;
+  --color-text-secondary: #5f8a86;
+  --color-text-muted: #8fb3b0;
+  --color-accent: #0d9488;
+  --color-accent-soft: rgba(13, 148, 136, 0.08);
+  --color-tag-bg: rgba(13, 148, 136, 0.08);
+  --color-tag-text: #0f766e;
+  --color-overlay: rgba(13, 22, 28, 0.82);
+  --color-prompt: #0d9488;
+  --color-cursor: #0d9488;
+  --color-subtitle: #5f8a86;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
+}
+
+.dark {
+  --color-bg: #0a0f14;
+  --color-surface: rgba(15, 23, 32, 0.8);
+  --color-surface-hover: rgba(20, 32, 44, 0.9);
+  --color-border: rgba(45, 212, 191, 0.1);
+  --color-border-glow: rgba(45, 212, 191, 0.3);
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-accent: #2dd4bf;
+  --color-accent-soft: rgba(45, 212, 191, 0.08);
+  --color-tag-bg: rgba(45, 212, 191, 0.1);
+  --color-tag-text: #5eead4;
+  --color-overlay: rgba(0, 0, 0, 0.85);
+  --color-prompt: #2dd4bf;
+  --color-cursor: #2dd4bf;
+  --color-subtitle: #94a3b8;
+}
+
+/* =============================================
+   Page Layout
+   ============================================= */
+.projects-page {
+  color: var(--color-text-primary);
+}
+
+/* =============================================
+   Terminal Title
+   ============================================= */
+.terminal-title {
+  font-family: var(--font-mono);
   display: flex;
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.2;
 }
 
-.galeri-item {
-  flex: 1;
-  border-radius: 1rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  transition: all 0.5s cubic-bezier(0.25, 0.4, 0.45, 1.4);
-  opacity: 0.9;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  min-height: 0;
-  min-width: 0;
-  padding: 0;
-  background-color: transparent;
-}
-
-.galeri-item:hover {
-  flex: 3;
-  background-size: auto 110%;
-  opacity: 1;
-}
-
-/* === galeri responsive === */
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex: none;
-    min-height: auto;
+@media (max-width: 640px) {
+  .terminal-title {
+    gap: 0.25rem;
   }
 
-  .galeri {
-    display: flex;
-    flex-direction: column;
-    flex: none;
-    width: 100%;
-    height: auto;
-    min-height: unset;
-    gap: 1rem;
-    overflow: hidden;
-  }
-
-  .galeri-item {
-    width: 100%;
-    min-height: 250px;
-    flex: none;
-    box-sizing: border-box;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .galeri-item:hover {
-    flex: none;
-    background-size: cover;
+  .terminal-cursor {
+    width: 0.4em;
+    height: 0.8em;
   }
 }
 
-.slider-container {
-  width: 100%;
-  overflow: hidden;
+.terminal-prompt {
+  color: var(--color-prompt);
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
-.slider {
-  display: flex;
-  animation: slide 20s infinite linear;
+.terminal-text {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-prompt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.slider div {
-  margin-right: 20px;
-  white-space: nowrap;
-  font-size: 1rem;
-  font-style: italic;
-  color: teal;
+.terminal-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  background: var(--color-cursor);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0%);
-  }
-
+@keyframes blink {
+  0%,
   100% {
-    transform: translateX(-50%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminal-subtitle {
+  font-family: var(--font-mono);
+  color: var(--color-subtitle);
+  font-size: 0.8rem;
+}
+
+/* =============================================
+   Project Cards Grid
+   ============================================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 641px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* =============================================
+   Individual Card
+   ============================================= */
+.project-card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 100%;
+
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.02);
+
+  /* Interaction */
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+
+  /* Animation setup */
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  /* Stagger delay */
+  transition-delay: var(--stagger-delay, 0ms);
+
+  /* Reset */
+  font: inherit;
+  color: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Visible state — IntersectionObserver adds this */
+.project-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effects */
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-glow);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.06),
+      0 0 0 1px var(--color-border-glow),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .project-card:hover .card-image {
+    transform: scale(1.04);
+  }
+
+  .project-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .project-card:hover .overlay-text {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =============================================
+   Card Image
+   ============================================= */
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--color-accent-soft);
+}
+
+@media (min-width: 641px) {
+  .card-image-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+/* =============================================
+   Image Hover Overlay
+   ============================================= */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-overlay);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transform: translateY(6px);
+  opacity: 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.overlay-arrow {
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .overlay-arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* =============================================
+   Card Body
+   ============================================= */
+.card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =============================================
+   Tech Tag Pills
+   ============================================= */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-tag-text);
+  background: var(--color-tag-bg);
+  border-radius: 100px;
+  white-space: nowrap;
+  line-height: 1.6;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .tag-pill {
+    background: var(--color-accent-soft);
+  }
+}
+
+/* =============================================
+   Responsive Adjustments
+   ============================================= */
+@media (max-width: 640px) {
+  .projects-grid {
+    gap: 1.25rem;
+  }
+
+  .card-body {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .tag-pill {
+    font-size: 0.65rem;
+    padding: 0.175rem 0.5rem;
+  }
+}
+
+/* =============================================
+   Reduced Motion
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  .terminal-cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .project-card {
+    opacity: 1;
+    transform: none;
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .card-image {
+    transition: none;
+  }
+
+  .card-overlay {
+    transition: opacity 0.15s ease;
+  }
+
+  .overlay-text {
+    transition: opacity 0.15s ease;
+    transform: none;
   }
 }
 </style>

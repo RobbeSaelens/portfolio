@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "aboutMe": "About me",
+    "home": "Home"
+  },
+  "home": {
+    "role": "Next Web Developer",
+    "bio": "I'm a full stack web developer based in Gilwe (Geluwe), I like making \"cool stuff\" and discovering new things.",
+    "dynamateRole": "as Drupal backend developer.",
+    "educationLabel": "Bachelor's degree in",
+    "sayHello": "Say Hello",
+    "goToProjects": "Go to my projects"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "My story",
+    "teaching": "Teaching",
+    "teachingText": "In 2017 I started as instructor in equestrian sports. Since then I learned a lot about teaching and how to work with people. I currently work as an instructor at {link}.",
+    "education": "Education",
+    "educationText1": "In 2018 I started the graduate education in Multimedia & Information Technologies. There I learned all the basics of programming and web development.",
+    "educationText2": "After MIT I started the bachelors degree in Multimedia & Communication Technologies as {link}.",
+    "experience": "Experience",
+    "experienceText1": "In February 2023 I started as an intern at {link1}. After my internship I started working there as a {role}.",
+    "experienceText2": "I transitioned to become a {role} at {link2}. Excited to bring my experience to new projects!",
+    "phpMagentoDev": "PHP & Magento developer",
+    "juniorBackendDev": "Junior Backend Developer",
+    "workTogether": "Work together?"
+  },
+  "projects": {
+    "title": "Favorite projects",
+    "getInTouch": "Get in touch!",
+    "viewProject": "View project"
+  },
+  "azure": {
+    "title": "Netflix",
+    "subtitle1": "Azure Search & Amazon OpenSearch",
+    "subtitle2": "Vue.js & TailwindCSS",
+    "subtitle3": "Unstructured data",
+    "overview": "Project Overview",
+    "about": "About",
+    "aboutText": "This project was developed as part of my bachelor thesis, exploring the integration of Search as a Service with unstructured data. Built with Vue.js and TailwindCSS, it demonstrates how Azure Cognitive Search and Amazon OpenSearch can index and query a large unstructured dataset — a text file containing over 8,000 movies and TV shows — delivering fast, relevant search results through a Netflix-style browsing experience.",
+    "languages": "Languages",
+    "tools": "Tools",
+    "viewOther": "View other projects"
+  },
+  "vital": {
+    "title": "Vital Cities",
+    "overview": "Project Overview",
+    "about": "About",
+    "aboutText": "Vital Cities is a group project I developed during my studies, in collaboration with classmates. The assignment was to design and build an engaging public-facing website for Vital Cities — an organization dedicated to helping cities become more sustainable and livable. We focused on crafting a highly interactive experience with rich animations, smooth page transitions, and a clean, modern aesthetic to effectively communicate their mission and inspire civic engagement.",
+    "languages": "Languages",
+    "tools": "Tools",
+    "viewOther": "View other projects"
+  },
+  "binance": {
+    "title": "Binance",
+    "overview": "Project Overview",
+    "about": "About",
+    "aboutText": "This concept project was designed and prototyped entirely in Adobe XD during my studies. The idea was to create a companion smartwatch app for cryptocurrency enthusiasts, letting users monitor their portfolio, track real-time prices, and receive alerts — all from their wrist. I used Adobe AfterEffects to craft fluid, polished animations and integrated them into the prototype with LottieFiles for a seamless, interactive demo experience.",
+    "languages": "Languages",
+    "tools": "Tools",
+    "viewOther": "View other projects"
+  },
+  "bikeRental": {
+    "title": "Bike Rental",
+    "overview": "Project Overview",
+    "about": "About",
+    "aboutText": "This full-stack Progressive Web App was a school project built together with Achille Dupont. It enables users to rent bikes, view real-time bike locations on an interactive map, and manage their rentals through a mobile-first interface. On the backend, an admin panel lets operators add and remove bikes, track rental statuses, and monitor the entire fleet. The app combines Vue.js on the frontend with a NestJS and GraphQL API on the backend.",
+    "languages": "Languages",
+    "tools": "Tools",
+    "viewOther": "View other projects"
+  },
+  "error": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  },
+  "aria": {
+    "switchToDutch": "Switch to Dutch",
+    "switchToEnglish": "Switch to English",
+    "toggleThemeLight": "Switch to light mode",
+    "toggleThemeDark": "Switch to dark mode",
+    "toggleNav": "Toggle navigation menu"
+  }
+}
